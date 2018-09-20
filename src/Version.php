@@ -95,7 +95,7 @@ class Version
 
     private function isMajorLowerThan(int $major): bool
     {
-        return !$this->isMajorHigherThan($major);
+        return $this->major < $major;
     }
 
     private function isMinorHigherThan(int $minor): bool
@@ -105,7 +105,7 @@ class Version
 
     private function isMinorLowerThan(int $minor): bool
     {
-        return !$this->isMinorHigherThan($minor);
+        return $this->minor < $minor;
     }
 
     private function isPatchHigherThan(int $patch): bool
