@@ -89,4 +89,10 @@ class VersionTest extends TestCase
             (new Version(2, 2, 3))->isOlderThan(new Version(1, 2, 3))
         );
     }
+
+    public function testValidatesString(): void
+    {
+        $this->expectException(\InvalidArgumentException::class);
+        Version::fromString('invalid string');
+    }
 }
