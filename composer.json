@@ -1,0 +1,15 @@
+{
+    "name": "jakubgiminski/sem-ver",
+    "description": "Semantic versioning for PHP",
+    "type": "library",
+    "require-dev": {
+        "phpunit/phpunit": "^7.3"
+    },
+    "authors": [
+        {
+            "name": "Jakub Giminski",
+            "email": "jakubgiminski@gmail.com"
+        }
+    ],
+    "require": {}
+}
