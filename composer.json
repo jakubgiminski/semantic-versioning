@@ -1,5 +1,5 @@
 {
-    "name": "jakubgiminski/sem-ver",
+    "name": "jakubgiminski/semantic-versioning",
     "description": "Semantic versioning for PHP",
     "type": "library",
     "require-dev": {
@@ -11,5 +11,15 @@
             "email": "jakubgiminski@gmail.com"
         }
     ],
+    "autoload": {
+        "psr-4": {
+            "SemanticVersioning\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "SemanticVersioning\\Tests\\": "tests/"
+        }
+    },
     "require": {}
 }
