@@ -66,6 +66,33 @@ class Version
         return !$this->equals($version) && !$this->isNewerThan($version);
     }
 
+    public function incrementMajor(): self
+    {
+        return new self(
+            $this->major + 1,
+            $this->minor,
+            $this->patch
+        );
+    }
+
+    public function incrementMinor(): self
+    {
+        return new self(
+            $this->major,
+            $this->minor + 1,
+            $this->patch
+        );
+    }
+
+    public function incrementPatch(): self
+    {
+        return new self(
+            $this->major,
+            $this->minor,
+            $this->patch + 1
+        );
+    }
+
     public function getMajor(): int
     {
         return $this->major;
@@ -84,7 +111,7 @@ class Version
     private static function validateVersionString(string $version): void
     {
         if (count(explode('.', $version)) !== 3) {
-            throw new \InvalidArgumentException('Required format is: MINOR.MAJOR.PATCH');
+            throw new \InvalidArgumentException('Required format is: MAJOR.MINOR.PATCH');
         }
     }
 
