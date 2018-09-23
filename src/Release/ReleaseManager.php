@@ -1,6 +1,9 @@
 <?php declare(strict_types=1);
 
-namespace SemanticVersioning;
+namespace SemanticVersioning\Release;
+
+use DateTime;
+use SemanticVersioning\Version;
 
 class ReleaseManager
 {
@@ -21,7 +24,7 @@ class ReleaseManager
         $this->release(ReleaseType::major(), $notes);
     }
 
-    public function releaseMinor(ReleaseNotes $notes): Release
+    public function releaseMinorVersion(ReleaseNotes $notes): Release
     {
         $this->release(ReleaseType::minor(), $notes);
     }
@@ -39,7 +42,7 @@ class ReleaseManager
             $type,
             $notes,
             $this->incrementVersion($type, $lastRelease->getVersion()),
-            new \DateTime()
+            (new DateTime())->getTimestamp()
         );
 
         $this->repository->save($release);
@@ -47,16 +50,13 @@ class ReleaseManager
         return $release;
     }
 
-    public function incrementVersion(ReleaseType $type, Version $version): Version
+    private function incrementVersion(ReleaseType $type, Version $version): Version
     {
         switch ((string) $type) {
-
             case (string) ReleaseType::major():
                 return $version->incrementMajor();
-
             case (string) ReleaseType::minor():
                 return $version->incrementMinor();
-
             case (string) ReleaseType::patch():
                 return $version->incrementPatch();
         }
