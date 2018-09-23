@@ -15,12 +15,18 @@ class VersionTest extends TestCase
         );
     }
 
-    public function testCanCreateItselfFromString(): void
+    public function testCanBeCreatedFromString(): void
     {
         self::assertSame(
             (string) Version::fromString('1.2.3'),
             (string) new Version(1, 2, 3)
         );
+    }
+
+    public function testCannotBeCreatedFromInvalidString(): void
+    {
+        $this->expectException(\InvalidArgumentException::class);
+        Version::fromString('invalid string');
     }
 
     public function testCanCheckIfEquals(): void
@@ -88,11 +94,5 @@ class VersionTest extends TestCase
         self::assertFalse(
             (new Version(2, 2, 3))->isOlderThan(new Version(1, 2, 3))
         );
-    }
-
-    public function testValidatesString(): void
-    {
-        $this->expectException(\InvalidArgumentException::class);
-        Version::fromString('invalid string');
     }
 }
