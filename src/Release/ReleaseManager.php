@@ -3,7 +3,7 @@
 namespace SemanticVersioning\Release;
 
 use DateTime;
-use SemanticVersioning\Version;
+use SemanticVersioning\Version\Version;
 
 class ReleaseManager
 {

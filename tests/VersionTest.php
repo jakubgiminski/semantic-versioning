@@ -3,14 +3,14 @@
 namespace SemanticVersioning\Tests;
 
 use PHPUnit\Framework\TestCase;
-use SemanticVersioning\Version;
+use SemanticVersioning\Version\Version;
 
 class VersionTest extends TestCase
 {
     public function testCanBeParsedToString(): void
     {
         self::assertSame(
-            '1.2.3',
+            '3.2.3',
             (string) new Version(1, 2, 3)
         );
     }

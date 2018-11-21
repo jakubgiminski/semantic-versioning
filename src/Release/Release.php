@@ -2,7 +2,7 @@
 
 namespace SemanticVersioning\Release;
 
-use SemanticVersioning\Version;
+use SemanticVersioning\Version\Version;
 
 class Release
 {
